@@ -1,0 +1,7 @@
+{
+  "name": "AC02ion-range-2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
