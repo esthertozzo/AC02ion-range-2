@@ -1,20 +1,48 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Exercicios</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Exercícios ion-alert
+      </ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-content [fullscreen]="true">
+    <ion-alert trigger="ver-valorFinal" header="Resultados" message={{valorViagem}}
+    [buttons]="alertButtons"></ion-alert>
+   <div id="container">
+
+    <ion-item-divider>
+      <ion-label>
+          <ion-title size="large">App de Transporte</ion-title>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-toolbar><ion-title size="small">Selecione o tipo de carro</ion-title></ion-toolbar>
+
+    <ion-item>
+      <ion-radio-group [allowEmptySelection]="true" value="turtles" value="tipoCarro" [(ngModel)]="tipoCarro">
+        <ion-radio value="normal">Normal</ion-radio><br />
+        <ion-radio value="superior">Superior</ion-radio><br />
+        <ion-radio value="vip">Vip</ion-radio><br />
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" label="Digite os km´s rodados" labelPlacement="floating" [(ngModel)]="valorKM"></ion-input>
+    </ion-item>
+    <ion-button expand="block" id="ver-valorFinal" (click)="verificarValorViagem()">Verificar</ion-button>
+
   </div>
+  </ion-content>
+
+
 </ion-content>

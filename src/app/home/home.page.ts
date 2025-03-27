@@ -9,5 +9,11 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+  normal = 0;
+  superior = 0;
+  vip = 0;
+  valorKM = 0;
+  tipoCarro = 0;
+  valorViagem = 0;
 
 }
