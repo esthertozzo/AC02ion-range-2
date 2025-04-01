@@ -16,8 +16,14 @@
   </ion-header>
 
   <ion-content [fullscreen]="true">
-    <ion-alert trigger="ver-valorFinal" header="Resultados" message={{valorViagem}}
-    [buttons]="alertButtons"></ion-alert>
+    <ion-alert 
+    trigger="ver-valorFinal" 
+    header="Valores Finais" 
+    message="Valor da Viagem: {{valorViagem}}; Valor do APP: {{valorApp}}; Valor do Motorista: {{valorMotorista}}"
+    [buttons]="alertButtons"
+    ></ion-alert>
+
+    
    <div id="container">
 
     <ion-item-divider>
@@ -39,9 +45,42 @@
     <ion-item>
       <ion-input type="number" label="Digite os km´s rodados" labelPlacement="floating" [(ngModel)]="valorKM"></ion-input>
     </ion-item>
-    <ion-button expand="block" id="ver-valorFinal" (click)="verificarValorViagem()">Verificar</ion-button>
+    <ion-button expand="true" id="ver-valorFinal" (click)="verificarValorViagem()">Verificar</ion-button>
 
+  
+
+
+    <ion-item-divider>
+      <ion-label>
+          <ion-title size="large">Cálculo de gasto de combustível</ion-title>
+      </ion-label>
+    </ion-item-divider>
+
+    <ion-toolbar><ion-title size="small">Selecione o tipo de combustível</ion-title></ion-toolbar>
+
+    <ion-item>
+      <ion-radio-group [allowEmptySelection]="true" value="turtles" value="tipoCombustivel" [(ngModel)]="tipoCombustivel">
+        <ion-radio value="gasolina"><span>Gasolina:</span> R$5,00 por litro - roda 12km/l</ion-radio><br />
+        <ion-radio value="etanol"><span>Etanol:</span> R$4,00 por litro - roda 9km/l</ion-radio><br />
+        <ion-radio value="diesel"><span>Diesel:</span> R$6,00 por litro - roda 15km/l</ion-radio><br />
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="number" label="Digite os km´s rodados" labelPlacement="floating" [(ngModel)]="valorKMCombustivel"></ion-input>
+    </ion-item>
+    <ion-button expand="true" id="ver-valorCombustivel" (click)="verificarValorCombustivel()">Verificar</ion-button>
+
+    <ion-alert 
+    trigger="ver-valorCombustivel" 
+    header="Valor Final" 
+    message="Valor a pagar pelo combustível: R$ {{valorFinalCombustivel}}"
+    [buttons]="alertButtons1"
+    ></ion-alert>
   </div>
+  
+
+
   </ion-content>
 
 
